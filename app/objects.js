@@ -7,11 +7,15 @@ define(function() {
     },
 
     alterObjects : function(constructor, greeting) {
-
+    	constructor.prototype.greeting = greeting;
     },
 
     iterate : function(obj) {
-
+    	var rst = [];
+    	var props = Object.getOwnPropertyNames(obj);
+    	for (var key in props)
+    		rst.push(props[key] + ": " + obj[props[key]]);
+    	return rst;
     }
   };
 });

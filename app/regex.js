@@ -3,11 +3,12 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(function() {
   return {
     containsNumber : function(str) {
-
+        return /[\d]/.test(str);
     },
 
     containsRepeatingLetter : function(str) {
-
+        console.log(/([a-z](\1)+)/g.exec(str));
+        return /([a-z](\1)+)/g.exec(str);
     },
 
     endsWithVowel : function(str) {

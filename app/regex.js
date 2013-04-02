@@ -7,23 +7,23 @@ define(function() {
     },
 
     containsRepeatingLetter : function(str) {
-        console.log(/([a-z](\1)+)/g.exec(str));
-        return /([a-z](\1)+)/g.exec(str);
+        return /([a-zA-Z])\1/.test(str);
     },
 
     endsWithVowel : function(str) {
-
+        return /[aeiou]$/i.test(str);
     },
 
     captureThreeNumbers : function(str) {
-
+        return /[0-9]{3}/.exec(str) == null ? false : /[0-9]{3}/.exec(str)[0];
     },
 
     matchesPattern : function(str) {
-
+        return /^[\d]{3}-[\d]{3}-[\d]{4}$/.test(str);
     },
     isUSD : function(str) {
-
+        console.log(str);
+        return /^\$(\d{1,3})(\,[0-9]{3}?)*(\.\d\d){0,1}$/.test(str);
     }
   };
 });

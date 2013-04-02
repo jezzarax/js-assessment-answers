@@ -19,9 +19,21 @@ define(function() {
     	
     	return rst;
     },
-
+    usedChars: [],
+    permArr: [],
     permute: function(arr) {
-
+        var i, ch;
+        for (i = 0; i < arr.length; i++) {
+            ch = arr.splice(i, 1)[0];
+            this.usedChars.push(ch);
+            if (arr.length == 0) {
+                this.permArr.push(this.usedChars.slice());
+            }
+            this.permute(arr);
+            arr.splice(i, 0, ch);
+            this.usedChars.pop();
+        }
+        return this.permArr;
     }
   };
 });
